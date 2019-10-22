@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+// import { Normalize } from 'react-normalize'
+import { Normalize } from 'styled-normalize'
+
+import styled from 'styled-components'
+import { BgColor } from './constants/'
+import Header from './components/header'
+import Hero from './components/hero'
+import Container from './components/container'
+import Row from './components/row'
+import CarouselBlock from './components/carouselBlock'
+import Footer from './components/footer'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Wrapper>
+            <Normalize />
+            <Header />
+            <Hero />
+            <Container>
+                <Row />
+                <CarouselBlock />
+            </Container>
+            <Footer />
+        </Wrapper>
+    )
 }
 
-export default App;
+const Wrapper = styled.div`
+    background-color: ${BgColor};
+`
+
+// const Header = styled.div``
+
+export default App
