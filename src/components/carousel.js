@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
+import breakpoint from 'styled-components-breakpoint'
 import '../App.scss'
 import NukaCarousel from 'nuka-carousel'
+import { mobileWidth, tabletWidth } from '../constants'
 
 function Carousel() {
     return (
@@ -91,13 +93,20 @@ function Carousel() {
 
 const Wrapper = styled.div`
     width: 100%;
-    max-width: 500px;
+    max-width: ${mobileWidth};
     display: flex;
     background-color: #fff;
-    padding: 0 35px;
+
+    ${breakpoint('tablet')`
+        max-width: ${tabletWidth};
+    `}
+
+    ${breakpoint('desktop')`
+        max-width: ${mobileWidth};
+    `}
 `
 const Slide = styled.div`
-    padding: 35px 0;
+    padding: 35px;
 `
 
 const Title = styled.h2`

@@ -1,7 +1,6 @@
 import React from 'react'
-// import { Normalize } from 'react-normalize'
+import './App.scss'
 import { Normalize } from 'styled-normalize'
-
 import styled from 'styled-components'
 import { BgColor } from './constants/'
 import Header from './components/header'

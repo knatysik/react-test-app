@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import breakpoint from 'styled-components-breakpoint'
 import logo from '../logo.svg'
 import { headerHeight } from '../constants'
 
@@ -15,6 +16,18 @@ function Header() {
 
 const Wrapper = styled.div`
     background-color: #fff;
+
+    /* ${breakpoint('mobile')`
+        background-color: red;
+    `}
+  
+    ${breakpoint('tablet')`
+        background-color: blue;
+    `}
+    
+    ${breakpoint('desktop')`
+        background-color: green;
+    `} */
 `
 const LogoLink = styled.a`
     display: inline-block;

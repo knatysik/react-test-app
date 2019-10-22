@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import breakpoint from 'styled-components-breakpoint'
 import Input from './input'
 import Button from './button'
 import Checkbox from './checkbox'
@@ -119,10 +120,18 @@ const Title = styled.h2`
     text-transform: uppercase;
 `
 const WrapIntut = styled.div`
-    height: 40px;
     display: flex;
+    flex-wrap: wrap;
     margin: 5px 0;
     justify-content: space-between;
+
+    ${breakpoint('tablet')`
+        flex-wrap: no-wrap;
+    `}
+
+    Input {
+        margin-bottom: 5px;
+    }
 `
 const Hint = styled.div`
     padding: 10px 0;

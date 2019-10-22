@@ -27,7 +27,7 @@ function Input(props) {
 }
 
 const Wrapper = styled.input`
-    padding: 5px;
+    padding: 10px;
     min-width: 150px;
     border: 1px solid ${({ valid }) => (valid ? 'green' : 'red')};
 `

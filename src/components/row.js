@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import breakpoint from 'styled-components-breakpoint'
 import Article from './article'
 import ArticlePicture from '../images/skoda-vrs.jpg'
 
@@ -22,9 +23,19 @@ function Row() {
 const Wrapper = styled.div`
     display: flex;
     margin-top: -30px;
+    flex-direction: column;
+
+    ${breakpoint('tablet')`
+        flex-direction: row;
+    `}
 `
 const Picture = styled.img`
-    max-width: 500px;
+    width: 100%;
+    height: auto;
+
+    ${breakpoint('tablet')`
+        max-width: 50%;
+    `}
 `
 
 const Title = styled.h2`

@@ -14,6 +14,10 @@ const Wrapper = styled.button`
     margin-right: 0;
     outline: none;
     cursor: pointer;
+
+    &:hover {
+        background-color: #634c3d;
+    }
 `
 
 export default Button
