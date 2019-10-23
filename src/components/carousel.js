@@ -1,12 +1,24 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import breakpoint from 'styled-components-breakpoint'
 import '../App.scss'
 import NukaCarousel from 'nuka-carousel'
 import { mobileWidth, tabletWidth } from '../constants'
+import axios from 'axios'
 
 function Carousel() {
-    const [data, setData] = useState({ slides: [] })
+    const [data, setData] = useState()
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const result = await axios(
+                'https://jsonplaceholder.typicode.com/posts',
+            )
+            setData(result.data)
+        }
+        fetchData()
+    }, [])
+
     return (
         <Wrapper>
             <NukaCarousel
@@ -20,28 +32,14 @@ function Carousel() {
                 renderCenterRightControls={false}
                 renderBottomCenterControls={false}
             >
-                <Slide>
-                    {data.hits.map(item => (
-                        <li key={item.objectID}>
-                            <a href={item.url}>{item.title}</a>
-                        </li>
+                {data &&
+                    data.slice(0, 10).map(item => (
+                        <Slide key={item.id}>
+                            <Title>{item.id}</Title>
+                            <Content>{item.body}</Content>
+                            <Signature>{item.title}</Signature>
+                        </Slide>
                     ))}
-                </Slide>
-                <Slide>
-                    <Title>Tytuł 2</Title>
-                    <Content>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea
-                        commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate velit esse cillum dolore eu
-                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                        non proident, sunt in culpa qui officia deserunt mollit
-                        anim id est laborum.
-                    </Content>
-                    <Signature>Lorem ipsum 2</Signature>
-                </Slide>
             </NukaCarousel>
         </Wrapper>
     )
