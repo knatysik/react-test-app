@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import breakpoint from 'styled-components-breakpoint'
 import '../App.scss'
@@ -6,6 +6,7 @@ import NukaCarousel from 'nuka-carousel'
 import { mobileWidth, tabletWidth } from '../constants'
 
 function Carousel() {
+    const [data, setData] = useState({ slides: [] })
     return (
         <Wrapper>
             <NukaCarousel
@@ -20,26 +21,11 @@ function Carousel() {
                 renderBottomCenterControls={false}
             >
                 <Slide>
-                    <Title>Tytuł 1</Title>
-                    <Content>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua. Ut enim ad minim veniam, quis
-                            nostrud exercitation ullamco laboris nisi ut aliquip
-                            ex ea commodo consequat. Duis aute irure dolor in
-                            reprehenderit in voluptate velit esse cillum dolore
-                            eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia
-                            deserunt mollit anim id est laborum.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua.
-                        </p>
-                    </Content>
-                    <Signature>Lorem ipsum 1</Signature>
+                    {data.hits.map(item => (
+                        <li key={item.objectID}>
+                            <a href={item.url}>{item.title}</a>
+                        </li>
+                    ))}
                 </Slide>
                 <Slide>
                     <Title>Tytuł 2</Title>
@@ -55,36 +41,6 @@ function Carousel() {
                         anim id est laborum.
                     </Content>
                     <Signature>Lorem ipsum 2</Signature>
-                </Slide>
-                <Slide>
-                    <Title>Tytuł 3</Title>
-                    <Content>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea
-                        commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate velit esse cillum dolore eu
-                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                        non proident, sunt in culpa qui officia deserunt mollit
-                        anim id est laborum.
-                    </Content>
-                    <Signature>Lorem ipsum 3</Signature>
-                </Slide>
-                <Slide>
-                    <Title>Tytuł 4</Title>
-                    <Content>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea
-                        commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate velit esse cillum dolore eu
-                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                        non proident, sunt in culpa qui officia deserunt mollit
-                        anim id est laborum.
-                    </Content>
-                    <Signature>Lorem ipsum 4</Signature>
                 </Slide>
             </NukaCarousel>
         </Wrapper>

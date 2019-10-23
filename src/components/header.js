@@ -16,6 +16,12 @@ function Header() {
 
 const Wrapper = styled.div`
     background-color: #fff;
+    display:flex;
+    justify-content:center;
+
+    ${breakpoint('tablet')`
+        justify-content:left;
+    `}
 
     /* ${breakpoint('mobile')`
         background-color: red;

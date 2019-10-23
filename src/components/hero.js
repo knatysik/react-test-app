@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import breakpoint from 'styled-components-breakpoint'
 import heroBg from '../images/skoda-kodiaq.jpg'
 import Container from './container'
 
@@ -25,6 +26,11 @@ const HeroTitle = styled.h1`
     font-size: 26px;
     width: 300px;
     padding-top: 30px;
+    padding-left: 30px;
+
+    ${breakpoint('tablet')`
+        padding-left: 0;
+    `}
 `
 
 export default Hero

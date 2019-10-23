@@ -7,17 +7,15 @@ function Container(props) {
 }
 const Wrapper = styled.div`
     margin: 0 auto;
+    width: 100%;
+    max-width: 500px;
 
-    ${breakpoint('mobile')`
-        width: 500px;
-    `}
-  
     ${breakpoint('tablet')`
-        width: 700px;
+        max-width: 700px;
     `}
-  
+
     ${breakpoint('desktop')`
-        width: 1000px;
+        max-width: 1000px;
     `}
 `
 

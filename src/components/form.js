@@ -114,7 +114,11 @@ function Form() {
 
 const Wrapper = styled.div`
     font-size: 12px;
-    padding: 30px 0;
+    padding: 30px;
+
+    ${breakpoint('tablet')`
+        padding: 30px 0;
+    `}
 `
 const Title = styled.h2`
     text-transform: uppercase;

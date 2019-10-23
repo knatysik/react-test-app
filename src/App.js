@@ -29,6 +29,4 @@ const Wrapper = styled.div`
     background-color: ${BgColor};
 `
 
-// const Header = styled.div``
-
 export default App
